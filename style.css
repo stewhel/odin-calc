@@ -87,8 +87,8 @@ button{
     background: radial-gradient(rgb(255, 255, 254), rgba(195, 194, 192, 0.928))
 }
 
-#clear,
-#del{
+.clear-btn,
+.del-btn{
     width: 49%;
     height: 40px;
     border-radius: 10px;
