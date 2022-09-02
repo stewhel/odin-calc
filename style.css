@@ -7,13 +7,10 @@ body{
 }
 
 *{
-    font: sans-serif;
     font-family: 'Entrée', sans-serif;
-    
 }
 
 body{
-   /*  /** background: rgb(205, 204, 204); */
     background-image: linear-gradient(rgb(252, 158, 130), rgb(250, 195, 113));
     display:flex;
     flex-direction: column;
@@ -28,7 +25,6 @@ body{
 }
 
 .calc-background{
-
     margin-top: 20%;
     background-color: hsl(211, 80%, 73%);
     box-shadow: 5pt 5pt 2px rgba(0, 0, 0, 0.585) ;
@@ -63,16 +59,6 @@ body{
     flex: 1;
 }
 
-.top-btns .btn{
-    width: 49%;
-    height: 40px;
-    border-radius: 10px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    background: radial-gradient(rgba(255, 183, 243, 0.759), rgb(255, 121, 224))
-
-}
-
 .bottom{
     display: flex;
     flex-wrap: wrap;
@@ -81,19 +67,8 @@ body{
     flex: 5
 }
 
-.bottom .btn{
-    font-size: 30px;
-    height: 24%;
-    width: 24%;
-    margin: 1px;
-}
-.bottom .oper-btn{
-    font-size: 30px;
-    height: 24%;
-    width: 24%;
-    margin: 1px;
-}
-
+.bottom .btn,
+.bottom .oper-btn,
 .bottom .equal-btn{
     font-size: 30px;
     height: 24%;
@@ -112,6 +87,16 @@ button{
     background: radial-gradient(rgb(255, 255, 254), rgba(195, 194, 192, 0.928))
 }
 
+#clear,
+#del{
+    width: 49%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    background: radial-gradient(rgba(255, 183, 243, 0.759), rgb(255, 121, 224))
+
+}
 
 #divide, #times, #minus, #plus{
     background: radial-gradient(rgb(255, 230, 0), rgba(234, 179, 26, 0.928))
@@ -122,20 +107,15 @@ button{
     background: radial-gradient(rgba(255, 77, 0, 0.761), rgba(255, 55, 55, 0.928))
 }
 
-
 .footer{
     margin-top: 30px;
     text-align: right;
     margin-right: 30px;
 }
 
-a:link{
+a:link,
+a:visited{
     text-decoration: none;
     color: black;
     font-size: 20px;
-    /* text-shadow: 2px 2px rgba(0, 0, 0, 0.368); */
-}
-
-a:visited{
-    color: black;
 }
