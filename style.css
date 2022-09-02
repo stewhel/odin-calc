@@ -1,14 +1,38 @@
+@import url('http://fonts.cdnfonts.com/css/entree');
+@import url('http://fonts.cdnfonts.com/css/digital-7-mono');
+
+html,
 body{
-    background: rgb(205, 204, 204);
+    height: 100%;
+}
+
+*{
+    font: sans-serif;
+    font-family: 'Entrée', sans-serif;
+    
+}
+
+body{
+   /*  /** background: rgb(205, 204, 204); */
+    background-image: linear-gradient(rgb(252, 158, 130), rgb(250, 195, 113));
     display:flex;
     flex-direction: column;
     align-items: center;
 }
 
+#screen{
+    font-family: 'Digital-7 Mono', sans-serif;
+    font-size: 120px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
 .calc-background{
 
-    background-color: #83b8f1;
-    box-shadow: 5pt 5pt rgba(0, 0, 0, 0.20);
+    margin-top: 20%;
+    background-color: hsl(211, 80%, 73%);
+    box-shadow: 5pt 5pt 2px rgba(0, 0, 0, 0.585) ;
+    border: 2px solid hsl(0, 0%, 3%);
     border-radius: 5%;
     padding-left: 20px;
     padding-right: 20px;
@@ -16,19 +40,22 @@ body{
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
-    width: 350px;
-    height: 400px;
+    width: 450px;
+    height: 500px;
 }
 
-.screen{
-    background-color: rgba(114, 251, 182, 0.983);
+#screen{
+    background-image: linear-gradient(to right,#d3ffe9fb, rgba(114, 251, 182, .983));
+    border: 1px solid hsl(0, 0%, 3%);
+    box-shadow: -1px -1px black;
+    text-shadow: 3px 4px rgba(0, 0, 0, 0.061);
     text-align: right;
     margin: 5px;
     border-radius: 10pt;
-    flex: 1;
+    flex: 1.5;
 }
 
-.top{
+.top-btns{
     display: flex;
     justify-content: space-around;
     margin-top: 1%;
@@ -36,17 +63,43 @@ body{
     flex: 1;
 }
 
-.top .btn{
-    width: 24%;
+.top-btns .btn{
+    width: 49%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    background: radial-gradient(rgba(255, 183, 243, 0.759), rgb(255, 121, 224))
+
 }
 
 .bottom{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     height: 100%;
     flex: 5
 }
 
+.bottom .btn{
+    font-size: 30px;
+    height: 24%;
+    width: 24%;
+    margin: 1px;
+}
+.bottom .oper-btn{
+    font-size: 30px;
+    height: 24%;
+    width: 24%;
+    margin: 1px;
+}
+
+.bottom .equal-btn{
+    font-size: 30px;
+    height: 24%;
+    width: 24%;
+    margin: 1px;
+}
 
 .key-container{
     flex: 5;
@@ -54,37 +107,35 @@ body{
     flex-direction: column;
 }
 
-.bottom-left{
-    flex: 3;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-   
-}
-
-.bottom-right{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 1%;
-    align-items: center;
-}
-
-.bottom-left .btn{
-    width: 32%;
-    height: 24%;
-}
-
-.bottom-right .btn{
-    width: 96%;
-    height: 24%;
-}
-
 button{
-    border-radius: 10%;
+    border-radius: 10px;
+    background: radial-gradient(rgb(255, 255, 254), rgba(195, 194, 192, 0.928))
 }
 
 
+#divide, #times, #minus, #plus{
+    background: radial-gradient(rgb(255, 230, 0), rgba(234, 179, 26, 0.928))
 
+}
+
+#equal{
+    background: radial-gradient(rgba(255, 77, 0, 0.761), rgba(255, 55, 55, 0.928))
+}
+
+
+.footer{
+    margin-top: 30px;
+    text-align: right;
+    margin-right: 30px;
+}
+
+a:link{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    /* text-shadow: 2px 2px rgba(0, 0, 0, 0.368); */
+}
+
+a:visited{
+    color: black;
+}

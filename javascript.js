@@ -8,76 +8,74 @@ operBtn.forEach(oper => oper.addEventListener('click', typeOper))
 const equalBtn = (document.querySelector('.equal-btn'))
 equalBtn.addEventListener('click', equals)
 
+const clearBtn = document.getElementById('clear')
+clearBtn.addEventListener('click', clear)
+
+const delBtn = document.getElementById('del')
+delBtn.addEventListener('click', del)
+
 let display = document.getElementById('screen')
 
-
-
-screen = []
-
-let leftNum = null
-let rightNum = null
-
-Nums = []
-
-let operator = null
+let newCalc = true
+let operator = undefined
+let nums = []
 
 operators = {
     "+" : plus,
     "-" : minus,
-    "*" : divide,
-    "/" : multiply,
+    "X" : multiply,
+    "/" : divide,
+    "CE": clear,
+    "DEL": del
 }
 
 function typeNum(e){
-    screen.push(e.srcElement.innerText)
+    if(newCalc == true){
+        display.textContent = ""
+        newCalc = false
+        console.log(newCalc)
+    }
+    display.textContent += e.srcElement.innerText;
+    round();
 }
 
-function typeOper(e){
-    joinNums(screen);
-    clearScreen(screen);
-    operator = operators[e.srcElement.innerText]
+function typeOper(e){  
+    operator = operators[e.srcElement.innerText];
+    nums.push(+display.textContent);
+    display.textContent = ""
+    if(nums.length == 2){
+        display.textContent = operator(nums[1], nums[2])
+        round()
+    }if(nums.length == 3){
+        nums.shift()
+        nums.shift()
+    }
+    newCalc = false
 }
 
-function joinNums(array){
-    let x = +array.join("")
-    Nums.push(x)
+function equals(){   
+    nums.push(+display.textContent);
+    if(nums.length == 2){
+        display.textContent = operator(nums[0], nums[1])
+        round()
+    }else if(nums.length == 3){
+        display.textContent = operator(nums[1], nums[2])
+        round()
+        nums.pop()
+    }
+    newCalc = true
 }
 
-function clearScreen(){
-    screen = []
+function round(){
+    if (+display.textContent.length > 8){
+        display.textContent = display.textContent.slice(0,-1)
+    }
+    display.textContent = Math.round(+display.textContent * 10)/10
 }
 
-function equals(){
-    joinNums(screen);
-    clearScreen;
-    console.log(Nums)
-    leftNum = Nums[0]
-    rightNum = Nums[1]
-    operator(Nums[0], Nums[1])
-    refreshScreen(display)
-}
-
-function refreshScreen(display){
-     display.textContent = "Hey"
-}
-
-function plus(a, b){
-    console.log(a + b)
-}
-
-function minus(a, b){
-    console.log(a - b)
-}
-
-function divide(a, b){
-    console.log(a / b)
-}
-
-
-
-
-
-
-
-
-
+function clear(){display.textContent = ""}
+function del(){ display.textContent = display.textContent.slice(0,-1)}
+function plus(a, b){return a + b}
+function minus(a, b){return a - b}
+function divide(a, b){return a / b}
+function multiply(a, b){return a * b}
